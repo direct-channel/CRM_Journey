@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRM Ecosystem Framework</title>
+  <title>Customer Lifecycle</title>
 
   <style>
     * {
@@ -166,7 +166,7 @@
   <div class="page">
     <div class="header">
       <h1 onclick="showOverview()" title="Click to return to overview">
-        Zurich Hong Kong — CRM Ecosystem
+        Zurich Hong Kong — CRM Journey
       </h1>
       <p>Customer journey framework across GI, Life, Retention and OZCP initiatives</p>
     </div>
@@ -180,12 +180,12 @@
 
     <div class="main-card">
       <div class="image-title">
-        <h2 id="imageHeading">CRM Ecosystem Framework</h2>
+        <h2 id="imageHeading">CRM Customer Lifecycle</h2>
         <span class="badge" id="imageBadge">Layer 1 Overview</span>
       </div>
 
       <div class="image-wrapper">
-        <img id="mainImage" src="framework.jpg" alt="CRM Ecosystem Framework">
+        <img id="mainImage" src="framework.jpg" alt="CRM Customer Lifecycle">
       </div>
 
       <div class="footer-note" id="footerNote">
@@ -229,12 +229,12 @@
     }
 
     function showOverview() {
-      document.getElementById("imageHeading").textContent = "CRM Ecosystem Framework";
+      document.getElementById("imageHeading").textContent = "CRM Customer Lifecycle";
       document.getElementById("imageBadge").textContent = "Layer 1 Overview";
 
       const mainImage = document.getElementById("mainImage");
       mainImage.src = "framework.jpg";
-      mainImage.alt = "CRM Ecosystem Framework";
+      mainImage.alt = "CRMCustomer Lifecycle";
 
       document.getElementById("footerNote").textContent =
         "Click GI, Life, Retention or OZCP to view the detailed journey layer. Click the headline to return to Layer 1.";
@@ -253,7 +253,7 @@
       mainImage.alt = data.alt;
 
       document.getElementById("footerNote").textContent =
-        "Click the headline to return to the CRM Ecosystem Framework.";
+        "Click the headline to return to the CRM Customer Lifecycle.";
 
       clearActiveButtons();
       document.getElementById("btn-" + type).classList.add("active");
