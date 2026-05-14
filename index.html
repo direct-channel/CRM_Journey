@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM Ecosystem Framework</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #f3f6fb 0%, #ffffff 100%);
+      color: #0b1f3a;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 28px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #003057;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.25s ease;
+    }
+
+    .header h1:hover {
+      color: #005eb8;
+      transform: translateY(-2px);
+    }
+
+    .header p {
+      font-size: 17px;
+      color: #5f6f89;
+    }
+
+    .button-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .tab-button {
+      border: none;
+      border-radius: 16px;
+      padding: 20px 16px;
+      background: #ffffff;
+      color: #003057;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 48, 87, 0.12);
+      transition: all 0.25s ease;
+      border: 2px solid transparent;
+    }
+
+    .tab-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 48, 87, 0.18);
+    }
+
+    .tab-button.active {
+      background: linear-gradient(135deg, #003057, #005eb8);
+      color: #ffffff;
+      border-color: #74b9ff;
+    }
+
+    .main-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 36px rgba(0, 48, 87, 0.14);
+      border: 1px solid #e3eaf3;
+    }
+
+    .image-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+
+    .image-title h2 {
+      font-size: 24px;
+      color: #003057;
+    }
+
+    .badge {
+      background: #eef5ff;
+      color: #005eb8;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      background: #f7f9fc;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid #dce6f2;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      text-align: center;
+      color: #6b7890;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .button-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 24px 14px;
+      }
+
+      .button-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .image-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <h1 onclick="showOverview()" title="Click to return to overview">
+        Zurich Hong Kong — CRM Ecosystem
+      </h1>
+      <p>Customer journey framework across GI, Life, Retention and OZCP initiatives</p>
+    </div>
+
+    <div class="button-bar">
+      <button class="tab-button" onclick="showImage('gi')" id="btn-gi">GI</button>
+      <button class="tab-button" onclick="showImage('life')" id="btn-life">Life</button>
+      <button class="tab-button" onclick="showImage('retention')" id="btn-retention">Retention</button>
+      <button class="tab-button" onclick="showImage('ozcp')" id="btn-ozcp">OZCP</button>
+    </div>
+
+    <div class="main-card">
+      <div class="image-title">
+        <h2 id="imageHeading">CRM Ecosystem Framework</h2>
+        <span class="badge" id="imageBadge">Layer 1 Overview</span>
+      </div>
+
+      <div class="image-wrapper">
+        <img id="mainImage" src="framework.jpg" alt="CRM Ecosystem Framework">
+      </div>
+
+      <div class="footer-note" id="footerNote">
+        Click GI, Life, Retention or OZCP to view the detailed journey layer. Click the headline to return to Layer 1.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const imageData = {
+      gi: {
+        title: "GI Journey",
+        badge: "Layer 2 — General Insurance",
+        image: "gi.jpg",
+        alt: "GI CRM Journey"
+      },
+      life: {
+        title: "Life Journey",
+        badge: "Layer 2 — Life Insurance",
+        image: "life.jpg",
+        alt: "Life CRM Journey"
+      },
+      retention: {
+        title: "Retention Journey",
+        badge: "Layer 2 — Renewal & Winback",
+        image: "retention.jpg",
+        alt: "Retention CRM Journey"
+      },
+      ozcp: {
+        title: "OZCP Journey",
+        badge: "Layer 2 — Customer Portal",
+        image: "ozcp.jpg",
+        alt: "OZCP CRM Journey"
+      }
+    };
+
+    function clearActiveButtons() {
+      document.querySelectorAll(".tab-button").forEach(button => {
+        button.classList.remove("active");
+      });
+    }
+
+    function showOverview() {
+      document.getElementById("imageHeading").textContent = "CRM Ecosystem Framework";
+      document.getElementById("imageBadge").textContent = "Layer 1 Overview";
+
+      const mainImage = document.getElementById("mainImage");
+      mainImage.src = "framework.jpg";
+      mainImage.alt = "CRM Ecosystem Framework";
+
+      document.getElementById("footerNote").textContent =
+        "Click GI, Life, Retention or OZCP to view the detailed journey layer. Click the headline to return to Layer 1.";
+
+      clearActiveButtons();
+    }
+
+    function showImage(type) {
+      const data = imageData[type];
+
+      document.getElementById("imageHeading").textContent = data.title;
+      document.getElementById("imageBadge").textContent = data.badge;
+
+      const mainImage = document.getElementById("mainImage");
+      mainImage.src = data.image;
+      mainImage.alt = data.alt;
+
+      document.getElementById("footerNote").textContent =
+        "Click the headline to return to the CRM Ecosystem Framework.";
+
+      clearActiveButtons();
+      document.getElementById("btn-" + type).classList.add("active");
+    }
+  </script>
+</body>
+</html>
